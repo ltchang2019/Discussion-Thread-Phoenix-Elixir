@@ -24,4 +24,5 @@ erl_crash.dump
 /config/prod.secret.exs
 
 # My Keys
-/config
+/config/dev.exs
+/config/config.exs
