@@ -73,10 +73,3 @@ Phoenix
 
     - Phoenix 1.3:
         - 
-    
-    - Questions:
-        - How the fuck do the edit.html params translate into what gets passed to :update???
-        - is OAuth :request route handled by Ueberauth?
-        - how the fuck do changesets actually work
-        - where is the documentation for websockets join and handle_in??
-        - you don't fucking understand where "topic" => topic comes from in :create function
