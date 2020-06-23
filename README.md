@@ -1,20 +1,23 @@
-# Discuss
+# Discussion Thread Online Course Project
 
-To start your Phoenix app:
+## Summary:
+- Create discussion topic threads
+- Post comments on each discussion thread
+- GitHub OAuth login
+- Elixir with Phoenix Framework (+ Postgres database)
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `npm install`
-  * Start Phoenix endpoint with `mix phoenix.server`
+### Home
+<img src="https://github.com/ltchang2019/Discussion-Thread-Elixir-Phoenix/blob/master/assets/discussions_home.png" width="1000" height="500" />
+<br>
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+### Add Topic
+<img src="https://github.com/ltchang2019/Discussion-Thread-Elixir-Phoenix/blob/master/assets/discussions_add.png" width="1000" height="150" />
+<br>
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+### Topic Discussion Thread
+<img src="https://github.com/ltchang2019/Discussion-Thread-Elixir-Phoenix/blob/master/assets/discussions_thread.png" width="1000" height="350" />
+<br>
 
-## Learn more
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+
+
