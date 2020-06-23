@@ -1,0 +1,15 @@
+<%# 
+Page: New Topic
+_______________
+- receives empty changeset
+- submitting input field updates changeset's :title property and calls :create method
+ %>
+
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+        <%= text_input f, :title, placeholder: "title", class: "form-control" %>
+        <%= error_tag f, :title %>
+    </div>
+
+    <%= submit "Save Topic", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,82 @@
+Elixir
+    - iex -S mix
+    - All variables are immutable (methods called on data makes copy)
+    - ? indicates boolean return function
+    - = means pattern matching
+    - Elixir is more reader/writer friendly version of Erlang (elixir gets transpiled into Erlang then run by BEAM)
+    - Binary erlang object is NOT 1s and 0s
+    - Ex_doc for documentation
+    - Tests all already in test folder
+    - Doc tests automatically test examples written into documentation (doctesting)
+    - No array indexing supported by Elixir (indexes just don’t exist)
+
+Phoenix
+    - Templates remain same but pages are different
+    - Names of models, templates, views, and controllers are all closely related
+    - Magic behind the scenes to link names
+    - Models meant to instruct postgres on what structure data will take
+    - Restful API conventions:
+        - /topics: any request relating to topics
+        - /topics/new: create new topic… etc
+    - Import allows module to use functions of imported module
+    - Alias just saves key strokes (i.e. add(...) instead of Math.add(...)) and allows use inside module
+    - Use Discuss.Web, :controller = give all functionality of controller to current doc
+    - conn struct contains all info about ingoing and outgoing request and response (conn object gets modified little by little along request lifecycle)
+    - views use all corresponding template documents in render (they basically just branch out to templates magically)
+    - to set up or modify table in database, create migration file with ecto.gen.migration then migrate it with ecto.migrate
+    for_form field is what the fn f -> refers to (following field e.g. :title means change the changeset's title field)
+    - changeset takes in struct in database and new updated struct and returns object describing changes to make (defined in model document for specific model)
+    - when you pass in info from html.eex file, you pass in whats being modified by the f function and any additional specifications
+    - everytime you are creating new struct in database, you must go through ecto.gen.migration then ecto.migrate
+    - configure OAuth with dependencies and in config.exs
+    - all controller functions return connections!
+    - build_assoc returns a struct of the type you are trying to build an association with (build_assoc user returns topic struct)
+    - params variable in controllers refers to params passed through when html doc calls path and passes in variable; variable
+      then gets included in link as well (those are the params)
+    - !bang operator option means function will throw status errors on error instead of custom message
+    - @... in html.eex indicates param passed in from controller
+    - belongs_to defines thing_id field in child entry; has_many appends on ids of children entries
+    - CALLBACKS: event object is magically forwarded on to callback, then you get what you need from event
+    - Poison Encoder describes what data to encode when converting model info into json
+
+    - To update/save to database:
+        - Create empty struct which represents structure of data you want to store
+        - Create params with specific data you want to store and cast that to struct
+        - Validate struct to produce changeset
+        - save changeset to database (repo is what we use to interact with database)
+
+    - Overall Interaction:
+        - topic controller wants to render "new.html"
+        - looks in views folder for topic view
+        - topic view looks in templates folder for all templates in topic folder
+
+    - Topic Template:
+        - <% = indicates Elixir code to execute (mixing Elixir code and html allows conditional rendering)
+        - error tag catches error message and presents it
+
+    - Plugs:
+        - meant to get user id, get user info from database, and insert it into conn object?
+        - put_session adds object to conn, get_session reads object from conn
+        - module plugs used for entire module (available to all topic methods) whereas function plugs are more specific
+
+    - Websockets:
+        - Steps:
+            - socket.js attempts to connect to channel with given title
+            - user_socket.ex checks if channel matches available
+            - channel name and socket object forwarded to comments_channel.ex and join function is called
+            - join function returns map with data and sends back to client (socket.js) as json
+        - Pieces:
+            - socket.js initiates connection and returns response
+            - user_socket looks for matching channel
+            - comments_channel handles joining and what to do once you've joined (returns json to socket.js?)
+        - when creating new instance of Socket, token is passed in as param and user_socket is called to make connection
+
+    - Phoenix 1.3:
+        - 
+    
+    - Questions:
+        - How the fuck do the edit.html params translate into what gets passed to :update???
+        - is OAuth :request route handled by Ueberauth?
+        - how the fuck do changesets actually work
+        - where is the documentation for websockets join and handle_in??
+        - you don't fucking understand where "topic" => topic comes from in :create function

@@ -1,0 +1,15 @@
+<%# 
+Page: Edit Page
+_______________
+- receives changeset with just struct (no params yet) and current topic struct
+- submitting form updates changeset's :title property and calls :update method, passing in old topic
+ %>
+
+<%= form_for @changeset, topic_path(@conn, :update, @topic), fn f -> %>
+    <div class="form-group">
+        <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+        <%= error_tag f, :title %>
+    </div>
+
+    <%= submit "Save Topic", class: "btn btn-primary" %>
+<% end %>

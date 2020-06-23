@@ -1,0 +1,21 @@
+<%# 
+Page: Show Topic
+___________________
+- receives topic param from topic controller
+- calls window's createSocket function, passing in topic id
+%>
+
+<h5><%= @topic.title %></h5>
+
+<div class="input-field">
+    <textarea class="materialize-textarea"></textarea>
+    <button class="btn">Add Comment</button>
+
+    <ul class="collection"></ul>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () =>{
+        window.createSocket(<%= @topic.id %>)
+    });
+</script>
